@@ -1,8 +1,5 @@
-//: Playground - noun: a place where people can play
 
 import UIKit
-
-var str = "Hello, playground"
 
 class Person :Equatable {
     var height: Int
@@ -41,11 +38,46 @@ func ==(person1: Person, person2: Person) -> Bool{
 
 var jeffrey = Person(name: "Jeffrey Ma", age: 14, height: 71)
 var jeffreyClone = Person(name: "Jeffrey Ma", age: 14, height: 71)
+var jeffreyDuplicate: Person = jeffrey
 var alexander = Person(name: "Alexander Knappen", age: 20, height: 61)
 var josh = Person(name: "Josh Holden", age: 28, height: 58)
 var phillip = Person(name: "Phillip Si", age: 24, height: 60)
 
 // remember to do equatable things
-print("Is Jeffrey equal to his clone? " + String(jeffreyClone==jeffrey))
+print("Is Jeffrey equal to his clone (same values)? " + String(jeffreyClone==jeffrey))
+print("Is Jeffrey equal to his duplicate (reference)? " + String(jeffreyDuplicate==jeffrey))
+print()
+
+print("Alexander before the summer: " + String(alexander.height) + " in.")
+alexander.grow(heightGrown: 10)
+print("Alexander growing 10 in. after the summer: " + String(alexander.height) + " in.")
+print()
+
+print("Josh before birthday: " + String(josh.age) + " years-old")
+josh.birthdayed()
+print("Josh After birthday: " + String(josh.age) + " years-old")
+print()
+
+print("Phillip before name change: " + String(phillip.name))
+phillip.changeName(newName: "Phillipa SIIII")
+print("Phillip After name change: " + String(phillip.name))
+
+var dictionaryOfPeople: [String: Person] = [:]
+
+dictionaryOfPeople["Jeffrey"] = jeffrey
+dictionaryOfPeople["JeffreyClone"] = jeffreyClone
+dictionaryOfPeople["JeffreyDuplicate"] = jeffreyDuplicate
+dictionaryOfPeople["Josh"] = josh
+dictionaryOfPeople["Phillip"] = phillip
+dictionaryOfPeople["Alexander"] = alexander
+print()
+
+print("People in the dictionary: ")
+
+for (key, value) in dictionaryOfPeople {
+    print("Name: " + value.name + " | Age: " + String(value.age) + " | Height: " + String(value.height) + " in.")
+}
+
+
 
 
