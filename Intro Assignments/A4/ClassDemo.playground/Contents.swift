@@ -37,7 +37,7 @@ func ==(person1: Person, person2: Person) -> Bool{
 }
 
 var jeffrey = Person(name: "Jeffrey Ma", age: 14, height: 71)
-var jeffreyClone = Person(name: "Jeffrey Ma", age: 14, height: 71)
+var jeffreyClone = Person(name: jeffrey.name, jeffrey.age, jeffrey.height)
 var jeffreyDuplicate: Person = jeffrey
 var alexander = Person(name: "Alexander Knappen", age: 20, height: 61)
 var josh = Person(name: "Josh Holden", age: 28, height: 58)
