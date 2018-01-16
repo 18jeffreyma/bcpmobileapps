@@ -37,7 +37,7 @@ func ==(person1: Person, person2: Person) -> Bool{
 }
 
 var jeffrey = Person(name: "Jeffrey Ma", age: 14, height: 71)
-var jeffreyClone = Person(name: jeffrey.name, jeffrey.age, jeffrey.height)
+var jeffreyClone = Person(name: jeffrey.name, age: jeffrey.age, height: jeffrey.height)
 var jeffreyDuplicate: Person = jeffrey
 var alexander = Person(name: "Alexander Knappen", age: 20, height: 61)
 var josh = Person(name: "Josh Holden", age: 28, height: 58)
@@ -55,7 +55,7 @@ print()
 
 print("Josh before birthday: " + String(josh.age) + " years-old")
 josh.birthdayed()
-print("Josh After birthday: " + String(josh.age) + " years-old")
+print("Josh after birthday: " + String(josh.age) + " years-old")
 print()
 
 print("Phillip before name change: " + String(phillip.name))
@@ -74,7 +74,7 @@ print()
 
 print("People in the dictionary: ")
 
-for (key, value) in dictionaryOfPeople {
+for (_, value) in dictionaryOfPeople {
     print("Name: " + value.name + " | Age: " + String(value.age) + " | Height: " + String(value.height) + " in.")
 }
 
