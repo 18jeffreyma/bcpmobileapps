@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         
-        datetime.text = String(hour) + ":" + String(minutes)
+        datetime.text = String(format: "%02d", hour) + ":" + String(format: "%02d", minutes)
         datetime.font = UIFont(name: "Chalkduster", size: 50)
         datetime.textColor = UIColor.red
         
