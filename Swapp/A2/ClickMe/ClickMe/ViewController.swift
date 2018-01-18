@@ -53,6 +53,7 @@ class ViewController: UIViewController {
         numberOfClicks = 0
         counter = 30
         startCounter = 2
+        timesUp = true
         theLabel.text = "Counter: 0"
         countdownLabel.text = "Ready? 3"
         

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuoteGenerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvD-85-Hgt">
+                                <rect key="frame" x="154.5" y="617" width="65" height="30"/>
+                                <color key="backgroundColor" red="0.91626862046632129" green="0.069659297680905424" blue="0.072035130397967898" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  Ghandi  ">
+                                    <color key="titleColor" red="0.99249608204015416" green="1" blue="0.98745295602315297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="ghandiClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0rA-WT-QVH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sd6-h6-m00">
+                                <rect key="frame" x="249.5" y="617" width="81" height="30"/>
+                                <color key="backgroundColor" red="0.23691105455595859" green="0.34831477776744635" blue="0.91626862046632129" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  Dr. Seuss  ">
+                                    <color key="titleColor" red="0.99249608204015416" green="1" blue="0.98745295602315297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="seussClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UXX-em-86b"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quote Generator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RBP-h7-Hnw">
+                                <rect key="frame" x="123" y="40" width="128.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAw-0A-eCp">
+                                <rect key="frame" x="54.5" y="617" width="70" height="30"/>
+                                <color key="backgroundColor" red="0.077600966189071655" green="0.82942033678756477" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  Einstein  ">
+                                    <color key="titleColor" red="0.99249608204015416" green="1" blue="0.98745295602315297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="einsteinClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gHl-ns-arl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a person!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xA-xU-b0D">
+                                <rect key="frame" x="24" y="323" width="327" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="327" id="trm-wP-ESV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gvD-85-Hgt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0ex-tL-zbd"/>
+                            <constraint firstItem="4xA-xU-b0D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Ic-xo-Uik"/>
+                            <constraint firstItem="4xA-xU-b0D" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9o4-dX-LCG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Sd6-h6-m00" secondAttribute="bottom" constant="20" id="Eee-9m-Ma0"/>
+                            <constraint firstItem="RBP-h7-Hnw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FUg-xY-Y0P"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gvD-85-Hgt" secondAttribute="bottom" constant="20" id="FY3-E9-vRb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jAw-0A-eCp" secondAttribute="bottom" constant="20" id="H7B-dT-hkl"/>
+                            <constraint firstItem="gvD-85-Hgt" firstAttribute="leading" secondItem="jAw-0A-eCp" secondAttribute="trailing" constant="30" id="Q34-th-haU"/>
+                            <constraint firstItem="RBP-h7-Hnw" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fbL-xR-Fgk"/>
+                            <constraint firstItem="4xA-xU-b0D" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iss-gB-V0v"/>
+                            <constraint firstItem="Sd6-h6-m00" firstAttribute="leading" secondItem="gvD-85-Hgt" secondAttribute="trailing" constant="30" id="lro-OZ-6rE"/>
+                            <constraint firstItem="4xA-xU-b0D" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="plR-Ww-Wpk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="theLabel" destination="4xA-xU-b0D" id="0fp-R8-MDz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
