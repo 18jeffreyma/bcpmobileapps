@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SegQuotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a person!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWx-GN-kRI">
+                                <rect key="frame" x="-1" y="50" width="377" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="377" id="YzY-1L-wfO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xdA-We-Oa7">
+                                <rect key="frame" x="78.5" y="319.5" width="218" height="29"/>
+                                <segments>
+                                    <segment title="Einstein"/>
+                                    <segment title="Ghandi"/>
+                                    <segment title="Dr. Seuss"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zd4-Pf-dbL"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCi-o7-Alu">
+                                <rect key="frame" x="184" y="626" width="8" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="6SA-eO-8tX">
+                                <rect key="frame" x="81" y="576" width="213" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="209" id="ra1-iJ-3r0"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="slideValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="wlS-0H-w70"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6SA-eO-8tX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="31b-tl-7vq"/>
+                            <constraint firstItem="dCi-o7-Alu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HMR-SH-Sgt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="dCi-o7-Alu" secondAttribute="bottom" constant="20" id="HRM-EO-qWX"/>
+                            <constraint firstItem="xdA-We-Oa7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ORy-Pp-5CD"/>
+                            <constraint firstItem="pWx-GN-kRI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="cKo-ZT-h7c"/>
+                            <constraint firstItem="pWx-GN-kRI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f2u-WI-HwZ"/>
+                            <constraint firstItem="xdA-We-Oa7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oQ5-DP-Gjv"/>
+                            <constraint firstItem="dCi-o7-Alu" firstAttribute="top" secondItem="6SA-eO-8tX" secondAttribute="bottom" constant="20" id="sou-yC-Tmf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="personSelection" destination="xdA-We-Oa7" id="UG1-ZQ-1Xs"/>
+                        <outlet property="quoteNumber" destination="dCi-o7-Alu" id="040-I6-q2W"/>
+                        <outlet property="quoteNumberSelection" destination="6SA-eO-8tX" id="iet-aL-1np"/>
+                        <outlet property="theLabel" destination="pWx-GN-kRI" id="e8C-fV-kjC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
