@@ -83,6 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="theLabel" destination="4xA-xU-b0D" id="0fp-R8-MDz"/>
+                        <outlet property="title" destination="RBP-h7-Hnw" id="ool-XS-UkJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
