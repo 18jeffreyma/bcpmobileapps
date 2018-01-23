@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var quoteNumberSelection: UISlider!
     
     
-    
+
     
     let einsteinQuotes: [String] = ["There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle.", "We still do not know one-thousandth of one percent of what nature has revealed to us.", "He who can no longer pause to wonder and stand rapt in awe, is as good as dead his eyes are closed.", "It is the theory that decides what we can observe.", "We should take care not to make the intellect our god it has, of course, powerful muscles, but no personality."]
     let ghandiQuotes: [String] = ["Happiness is when what you think, what you say, and what you do are in harmony.", "Where there is love there is life.", "Strength does not come from physical capacity. It comes from an indomitable will.", "The future depends on what we do in the present.", "Action expresses priorities."]

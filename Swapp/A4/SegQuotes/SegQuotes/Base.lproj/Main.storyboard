@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a person!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWx-GN-kRI">
-                                <rect key="frame" x="-1" y="50" width="377" height="21"/>
+                                <rect key="frame" x="12.5" y="50" width="350" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="377" id="YzY-1L-wfO"/>
+                                    <constraint firstAttribute="width" constant="350" id="YzY-1L-wfO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
