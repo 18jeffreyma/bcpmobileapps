@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,6 +23,46 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wYx-f0-9Up">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="231" id="Rg8-ub-hrX" customClass="ViewControllerTableViewCell" customModule="customCell" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="231"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Rg8-ub-hrX" id="OxB-YE-Pdq">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="230.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NZp-YQ-x58">
+                                                    <rect key="frame" x="15" y="0.0" width="209" height="231"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="NZp-YQ-x58" secondAttribute="height" multiplier="19:21" id="dKU-hh-zfZ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yaR-cH-48v">
+                                                    <rect key="frame" x="232" y="97" width="128" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="DNe-B0-xBc"/>
+                                                        <constraint firstAttribute="width" secondItem="yaR-cH-48v" secondAttribute="height" multiplier="32:9" id="RE4-bE-f9y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="yaR-cH-48v" firstAttribute="top" secondItem="OxB-YE-Pdq" secondAttribute="topMargin" constant="86" id="CzS-su-zre"/>
+                                                <constraint firstItem="NZp-YQ-x58" firstAttribute="leading" secondItem="OxB-YE-Pdq" secondAttribute="leading" constant="15" id="T8W-VD-BBm"/>
+                                                <constraint firstItem="NZp-YQ-x58" firstAttribute="top" secondItem="OxB-YE-Pdq" secondAttribute="top" id="bli-oC-rw2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yaR-cH-48v" secondAttribute="bottom" constant="87" id="dSd-vY-X4n"/>
+                                                <constraint firstAttribute="bottom" secondItem="NZp-YQ-x58" secondAttribute="bottom" id="dYa-cK-BZl"/>
+                                                <constraint firstItem="yaR-cH-48v" firstAttribute="trailing" secondItem="OxB-YE-Pdq" secondAttribute="trailingMargin" id="u20-PO-m2p"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myImage" destination="NZp-YQ-x58" id="YbF-zS-uic"/>
+                                            <outlet property="myLabel" destination="yaR-cH-48v" id="dfM-o7-205"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="3Uj-8R-Le3"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Zgo-3m-Ccq"/>

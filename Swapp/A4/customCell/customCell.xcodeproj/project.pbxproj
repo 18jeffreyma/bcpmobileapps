@@ -14,6 +14,13 @@
 		165995D22019354F004E0B96 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 165995D02019354F004E0B96 /* LaunchScreen.storyboard */; };
 		165995DD2019354F004E0B96 /* customCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165995DC2019354F004E0B96 /* customCellTests.swift */; };
 		165995E82019354F004E0B96 /* customCellUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165995E72019354F004E0B96 /* customCellUITests.swift */; };
+		16F14E0A201A914900D611D0 /* ViewControllerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F14E09201A914900D611D0 /* ViewControllerTableViewCell.swift */; };
+		16F14E11201A951B00D611D0 /* Alexander Knappen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E0B201A951A00D611D0 /* Alexander Knappen.jpg */; };
+		16F14E12201A951B00D611D0 /* Joshua Holden.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E0C201A951A00D611D0 /* Joshua Holden.jpg */; };
+		16F14E13201A951B00D611D0 /* Phillip Si.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E0D201A951B00D611D0 /* Phillip Si.jpg */; };
+		16F14E14201A951B00D611D0 /* Jeffrey Ma.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E0E201A951B00D611D0 /* Jeffrey Ma.jpg */; };
+		16F14E15201A951B00D611D0 /* Will Portman.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E0F201A951B00D611D0 /* Will Portman.jpg */; };
+		16F14E16201A951B00D611D0 /* Brad Lindemann.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16F14E10201A951B00D611D0 /* Brad Lindemann.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		165995E32019354F004E0B96 /* customCellUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = customCellUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		165995E72019354F004E0B96 /* customCellUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customCellUITests.swift; sourceTree = "<group>"; };
 		165995E92019354F004E0B96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16F14E09201A914900D611D0 /* ViewControllerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTableViewCell.swift; sourceTree = "<group>"; };
+		16F14E0B201A951A00D611D0 /* Alexander Knappen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Alexander Knappen.jpg"; path = "../assets/Alexander Knappen.jpg"; sourceTree = "<group>"; };
+		16F14E0C201A951A00D611D0 /* Joshua Holden.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Joshua Holden.jpg"; path = "../assets/Joshua Holden.jpg"; sourceTree = "<group>"; };
+		16F14E0D201A951B00D611D0 /* Phillip Si.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Phillip Si.jpg"; path = "../assets/Phillip Si.jpg"; sourceTree = "<group>"; };
+		16F14E0E201A951B00D611D0 /* Jeffrey Ma.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Jeffrey Ma.jpg"; path = "../assets/Jeffrey Ma.jpg"; sourceTree = "<group>"; };
+		16F14E0F201A951B00D611D0 /* Will Portman.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Will Portman.jpg"; path = "../assets/Will Portman.jpg"; sourceTree = "<group>"; };
+		16F14E10201A951B00D611D0 /* Brad Lindemann.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Brad Lindemann.jpg"; path = "../assets/Brad Lindemann.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +95,12 @@
 				165995DB2019354F004E0B96 /* customCellTests */,
 				165995E62019354F004E0B96 /* customCellUITests */,
 				165995C52019354F004E0B96 /* Products */,
+				16F14E0B201A951A00D611D0 /* Alexander Knappen.jpg */,
+				16F14E10201A951B00D611D0 /* Brad Lindemann.jpg */,
+				16F14E0E201A951B00D611D0 /* Jeffrey Ma.jpg */,
+				16F14E0C201A951A00D611D0 /* Joshua Holden.jpg */,
+				16F14E0D201A951B00D611D0 /* Phillip Si.jpg */,
+				16F14E0F201A951B00D611D0 /* Will Portman.jpg */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,6 +120,7 @@
 				165995C72019354F004E0B96 /* AppDelegate.swift */,
 				165995C92019354F004E0B96 /* ViewController.swift */,
 				165995CB2019354F004E0B96 /* Main.storyboard */,
+				16F14E09201A914900D611D0 /* ViewControllerTableViewCell.swift */,
 				165995CE2019354F004E0B96 /* Assets.xcassets */,
 				165995D02019354F004E0B96 /* LaunchScreen.storyboard */,
 				165995D32019354F004E0B96 /* Info.plist */,
@@ -232,9 +253,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16F14E16201A951B00D611D0 /* Brad Lindemann.jpg in Resources */,
+				16F14E15201A951B00D611D0 /* Will Portman.jpg in Resources */,
 				165995D22019354F004E0B96 /* LaunchScreen.storyboard in Resources */,
+				16F14E11201A951B00D611D0 /* Alexander Knappen.jpg in Resources */,
 				165995CF2019354F004E0B96 /* Assets.xcassets in Resources */,
+				16F14E13201A951B00D611D0 /* Phillip Si.jpg in Resources */,
+				16F14E14201A951B00D611D0 /* Jeffrey Ma.jpg in Resources */,
 				165995CD2019354F004E0B96 /* Main.storyboard in Resources */,
+				16F14E12201A951B00D611D0 /* Joshua Holden.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +288,7 @@
 			files = (
 				165995CA2019354F004E0B96 /* ViewController.swift in Sources */,
 				165995C82019354F004E0B96 /* AppDelegate.swift in Sources */,
+				16F14E0A201A914900D611D0 /* ViewControllerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
