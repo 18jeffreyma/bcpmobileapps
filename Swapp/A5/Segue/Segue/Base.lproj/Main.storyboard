@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Segue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCENE 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-Xm-v56">
+                                <rect key="frame" x="154" y="20" width="66" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-TA-8Ab">
+                                <rect key="frame" x="141.5" y="617" width="91" height="30"/>
+                                <state key="normal" title="NEXT SCENE"/>
+                                <connections>
+                                    <segue destination="rwb-Df-Vl5" kind="presentation" identifier="sequeToPage2" modalTransitionStyle="flipHorizontal" id="gyb-zJ-cbP"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIg-9d-WLY">
+                                <rect key="frame" x="0.0" y="70" width="375" height="527"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="mcj-TA-8Ab" firstAttribute="top" secondItem="bIg-9d-WLY" secondAttribute="bottom" constant="20" id="0Dz-fa-89t"/>
+                            <constraint firstItem="Ea1-Xm-v56" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9eM-Z8-bDV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mcj-TA-8Ab" secondAttribute="bottom" constant="20" id="ACS-Fb-3rk"/>
+                            <constraint firstItem="Ea1-Xm-v56" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Def-dD-qGU"/>
+                            <constraint firstItem="bIg-9d-WLY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SIq-by-RwD"/>
+                            <constraint firstItem="mcj-TA-8Ab" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fXD-pT-2Bi"/>
+                            <constraint firstItem="bIg-9d-WLY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="fZD-Nj-gLM"/>
+                            <constraint firstItem="bIg-9d-WLY" firstAttribute="top" secondItem="Ea1-Xm-v56" secondAttribute="bottom" constant="20" id="qex-P9-r3w"/>
+                            <constraint firstItem="bIg-9d-WLY" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="uV6-a9-gvB"/>
+                            <constraint firstItem="bIg-9d-WLY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wnW-8c-sc9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="myWebView1" destination="bIg-9d-WLY" id="5xy-Nc-YkV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423.19999999999999" y="100.29985007496252"/>
+        </scene>
+        <!--Second Scene View Controller-->
+        <scene sceneID="JTh-4x-JiI">
+            <objects>
+                <viewController id="rwb-Df-Vl5" customClass="SecondSceneViewController" customModule="Segue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W8d-Z0-xeP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rro-w3-7Em">
+                                <rect key="frame" x="141.5" y="617" width="91" height="30"/>
+                                <state key="normal" title="NEXT SCENE"/>
+                                <connections>
+                                    <segue destination="1Ab-2X-GrM" kind="presentation" identifier="sequeToPage3" modalTransitionStyle="coverVertical" id="1Xn-FV-VD3"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CpL-WF-x5b">
+                                <rect key="frame" x="0.0" y="69" width="375" height="528"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCENE 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eab-Bb-nfV">
+                                <rect key="frame" x="153" y="20" width="68.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NiK-uB-WOf" firstAttribute="bottom" secondItem="Rro-w3-7Em" secondAttribute="bottom" constant="20" id="1yy-bl-GSr"/>
+                            <constraint firstItem="Rro-w3-7Em" firstAttribute="centerX" secondItem="W8d-Z0-xeP" secondAttribute="centerX" id="Gu6-CQ-axN"/>
+                            <constraint firstItem="Rro-w3-7Em" firstAttribute="top" secondItem="CpL-WF-x5b" secondAttribute="bottom" constant="20" id="LvQ-6N-7kb"/>
+                            <constraint firstItem="CpL-WF-x5b" firstAttribute="leading" secondItem="NiK-uB-WOf" secondAttribute="leading" id="PhR-pO-AfF"/>
+                            <constraint firstItem="CpL-WF-x5b" firstAttribute="centerY" secondItem="W8d-Z0-xeP" secondAttribute="centerY" id="Z0m-Mx-f0r"/>
+                            <constraint firstItem="CpL-WF-x5b" firstAttribute="centerX" secondItem="W8d-Z0-xeP" secondAttribute="centerX" id="bWG-os-Y2n"/>
+                            <constraint firstItem="Eab-Bb-nfV" firstAttribute="top" secondItem="NiK-uB-WOf" secondAttribute="top" id="eWR-J1-vQ9"/>
+                            <constraint firstItem="NiK-uB-WOf" firstAttribute="trailing" secondItem="CpL-WF-x5b" secondAttribute="trailing" id="fgf-de-e5f"/>
+                            <constraint firstItem="Eab-Bb-nfV" firstAttribute="centerX" secondItem="W8d-Z0-xeP" secondAttribute="centerX" id="vBt-EQ-4nk"/>
+                            <constraint firstItem="CpL-WF-x5b" firstAttribute="top" secondItem="Eab-Bb-nfV" secondAttribute="bottom" constant="20" id="veN-xv-YMl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NiK-uB-WOf"/>
+                    </view>
+                    <connections>
+                        <outlet property="myLabel" destination="Eab-Bb-nfV" id="HbN-hY-rcK"/>
+                        <outlet property="myWebView2" destination="CpL-WF-x5b" id="F3G-FU-hIt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSU-oY-ItO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="902"/>
+        </scene>
+        <!--Third Scene View Controller-->
+        <scene sceneID="gRN-JV-3gD">
+            <objects>
+                <viewController id="1Ab-2X-GrM" customClass="ThirdSceneViewController" customModule="Segue" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NKm-GN-dsb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gg4-Z9-TUg">
+                                <rect key="frame" x="140.5" y="617" width="93" height="30"/>
+                                <state key="normal" title="PLAY AGAIN?"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="sequeToPage1" modalTransitionStyle="crossDissolve" id="ECb-45-DV9"/>
+                                </connections>
+                            </button>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ze8-mn-Q2f">
+                                <rect key="frame" x="0.0" y="69" width="375" height="528"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST SCENE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePn-kL-2Gi">
+                                <rect key="frame" x="138" y="20" width="99.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Gg4-Z9-TUg" firstAttribute="centerX" secondItem="NKm-GN-dsb" secondAttribute="centerX" id="FQG-gA-vgM"/>
+                            <constraint firstItem="ePn-kL-2Gi" firstAttribute="top" secondItem="gPj-kz-d2I" secondAttribute="top" id="Lzb-3R-SyL"/>
+                            <constraint firstItem="Gg4-Z9-TUg" firstAttribute="top" secondItem="Ze8-mn-Q2f" secondAttribute="bottom" constant="20" id="Psr-bN-BJJ"/>
+                            <constraint firstItem="Ze8-mn-Q2f" firstAttribute="leading" secondItem="gPj-kz-d2I" secondAttribute="leading" id="Vpu-s5-WY5"/>
+                            <constraint firstItem="ePn-kL-2Gi" firstAttribute="centerX" secondItem="NKm-GN-dsb" secondAttribute="centerX" id="amV-EI-hOz"/>
+                            <constraint firstItem="gPj-kz-d2I" firstAttribute="trailing" secondItem="Ze8-mn-Q2f" secondAttribute="trailing" id="dAO-4c-Lht"/>
+                            <constraint firstItem="Ze8-mn-Q2f" firstAttribute="top" secondItem="ePn-kL-2Gi" secondAttribute="bottom" constant="20" id="dG2-iD-sGY"/>
+                            <constraint firstItem="Ze8-mn-Q2f" firstAttribute="centerY" secondItem="NKm-GN-dsb" secondAttribute="centerY" id="jqr-ze-WqI"/>
+                            <constraint firstItem="gPj-kz-d2I" firstAttribute="bottom" secondItem="Gg4-Z9-TUg" secondAttribute="bottom" constant="20" id="l7H-Eh-Qj9"/>
+                            <constraint firstItem="Ze8-mn-Q2f" firstAttribute="centerX" secondItem="NKm-GN-dsb" secondAttribute="centerX" id="xUc-n1-zZi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gPj-kz-d2I"/>
+                    </view>
+                    <connections>
+                        <outlet property="myWebView3" destination="Ze8-mn-Q2f" id="DFe-wp-f5s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KfE-eQ-Qus" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1279" y="612"/>
+        </scene>
+    </scenes>
+</document>
