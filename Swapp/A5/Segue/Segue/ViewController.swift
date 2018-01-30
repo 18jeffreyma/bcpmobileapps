@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var myWebView1: WKWebView!
     
+    @IBOutlet weak var linkInputBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if( segue.identifier == "sequeToPage2" ) {
             let secondViewController = segue.destination as! SecondSceneViewController
-            secondViewController.labelText = "Sequed to Page 2 (Passed from last scene)"
+            secondViewController.link = linkInputBox.text
         }
 
     }
