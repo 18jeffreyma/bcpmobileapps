@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -33,14 +34,30 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="al5-UI-9Tn">
                                 <rect key="frame" x="16" y="101" width="151" height="30"/>
                                 <state key="normal" title="Set Default Label Text"/>
+                                <connections>
+                                    <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yta-Ba-i7c"/>
+                                </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="oqU-vh-A05">
+                                <rect key="frame" x="16" y="141" width="382" height="382"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oqU-vh-A05" secondAttribute="height" multiplier="1:1" id="sIY-yL-N8o"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eBk-l6-JYh" appends="YES" id="nQL-AP-Ycs"/>
+                                </connections>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4Ev-nE-OyE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1oF-TD-l38"/>
+                            <constraint firstItem="oqU-vh-A05" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BeS-PL-Exs"/>
                             <constraint firstItem="siO-Ay-8eb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="HXy-q1-rYo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oqU-vh-A05" secondAttribute="trailing" constant="16" id="HiP-3b-aaz"/>
                             <constraint firstItem="siO-Ay-8eb" firstAttribute="top" secondItem="4Ev-nE-OyE" secondAttribute="bottom" constant="10" id="OW2-ig-Zb4"/>
                             <constraint firstItem="al5-UI-9Tn" firstAttribute="top" secondItem="siO-Ay-8eb" secondAttribute="bottom" constant="10" id="RlS-Bv-Kxt"/>
+                            <constraint firstItem="oqU-vh-A05" firstAttribute="top" secondItem="al5-UI-9Tn" secondAttribute="bottom" constant="10" id="S2a-n2-JGD"/>
                             <constraint firstItem="4Ev-nE-OyE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="i76-Pv-UhE"/>
                             <constraint firstItem="al5-UI-9Tn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="riM-qp-gOc"/>
                             <constraint firstItem="siO-Ay-8eb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y2r-3S-ZVB"/>
@@ -48,10 +65,23 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mealNameLabel" destination="4Ev-nE-OyE" id="miw-Re-EFG"/>
+                        <outlet property="nameTextField" destination="siO-Ay-8eb" id="ztl-4n-PC0"/>
+                        <outlet property="photoImageView" destination="oqU-vh-A05" id="hxW-2d-AlY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eBk-l6-JYh">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="bpL-zh-i2k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="132.88043478260872"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="320" height="320"/>
+    </resources>
 </document>
