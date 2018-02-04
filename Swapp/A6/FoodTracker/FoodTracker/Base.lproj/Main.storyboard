@@ -19,14 +19,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="oqU-vh-A05">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="oqU-vh-A05">
                                 <rect key="frame" x="16" y="142.33333333333337" width="382" height="382"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oqU-vh-A05" secondAttribute="height" multiplier="1:1" id="sIY-yL-N8o"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="eBk-l6-JYh" appends="YES" id="nQL-AP-Ycs"/>
+                                    <outletCollection property="gestureRecognizers" destination="HsU-g1-TGh" appends="YES" id="heo-2u-C37"/>
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zsY-BG-gtv" customClass="RatingControl" customModule="FoodTracker" customModuleProvider="target">
@@ -77,7 +77,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="eBk-l6-JYh" appends="YES" id="74X-0M-GT0"/>
+                            <outletCollection property="gestureRecognizers" destination="HsU-g1-TGh" appends="YES" id="eux-Bp-Lw4"/>
                         </connections>
                     </view>
                     <connections>
@@ -88,9 +88,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="eBk-l6-JYh">
+                <tapGestureRecognizer id="HsU-g1-TGh" userLabel="I">
                     <connections>
-                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="bpL-zh-i2k"/>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="Fpw-vd-BOl"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
