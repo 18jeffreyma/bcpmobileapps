@@ -3,7 +3,9 @@ Code Repository for Mr. Lindemann's Mobile Apps Class at Bellarmine College Prep
 
 ## To add repository for contributors
 
-`git init`
+
+
+`git clone https://github.com/18jeffreyma/bcpmobileapps.git`
 
 `git remote add origin https://github.com/18jeffreyma/bcpmobileapps.git`
 
