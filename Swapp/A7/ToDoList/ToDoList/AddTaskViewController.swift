@@ -11,7 +11,10 @@ import UIKit
 class AddTaskViewController: UIViewController {
 
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var isImp: UISwitch!
+    
+    @IBOutlet weak var prioritySlider: UISlider!
+    
+    @IBOutlet weak var priorityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +27,7 @@ class AddTaskViewController: UIViewController {
         
         let task = Task(context: context)
         task.name = textField.text!
-        task.isImportant = isImp.isOn
+        task.priorityValue = Int16(prioritySlider.value)
         
         //Save the data to core data
         
@@ -34,5 +37,23 @@ class AddTaskViewController: UIViewController {
         
     }
     
-
+    @IBAction func sliderChanged(_ sender: Any) {
+        
+        switch Int16(prioritySlider.value) {
+        case 1:
+            priorityLabel.text = "1 (High)"
+        case 2:
+            priorityLabel.text = "1 (Medium-High)"
+        case 3:
+            priorityLabel.text = "3 (Medium)"
+        case 4:
+            priorityLabel.text = "4 (Medium-Low)"
+        case 5:
+            priorityLabel.text = "1 (Low)"
+        default:
+            priorityLabel.text = "3 (Medium)"
+        }
+        
+    }
+    
 }

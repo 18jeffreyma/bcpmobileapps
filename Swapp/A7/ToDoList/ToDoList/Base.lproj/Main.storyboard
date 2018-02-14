@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,11 +20,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zky-2U-s6X">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexBackgroundColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.2274509804" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.87450980392156863" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.34999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="zky-2U-s6X" secondAttribute="trailing" id="CSh-Tk-f16"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="zky-2U-s6X" secondAttribute="bottom" id="aT1-d3-5ZC"/>
@@ -33,7 +33,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hk6-9c-U5G">
+                    <navigationItem key="navigationItem" title="To Do List" id="Hk6-9c-U5G">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="seY-E8-4Om">
                             <connections>
                                 <segue destination="Z9k-7B-p8I" kind="show" id="zMV-5X-huv"/>
@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Add Task View Controller-->
+        <!--Add Task-->
         <scene sceneID="fdl-cZ-RtU">
             <objects>
-                <viewController id="Z9k-7B-p8I" customClass="AddTaskViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Add Task" id="Z9k-7B-p8I" customClass="AddTaskViewController" customModule="ToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hqr-B0-AZd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,37 +62,63 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vjO-61-f9w">
-                                <rect key="frame" x="163" y="132" width="51" height="31"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5X2-zv-Awa">
-                                <rect key="frame" x="155" y="182" width="63" height="30"/>
-                                <state key="normal" title="Add Task"/>
+                                <rect key="frame" x="139" y="272" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Add Task">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="Z9k-7B-p8I" eventType="touchUpInside" id="nfk-mj-ove"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqY-QK-2mX">
+                                <rect key="frame" x="160" y="147" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.4900000000000002" minValue="1" maxValue="5.9900000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="NVc-CI-7a1">
+                                <rect key="frame" x="38" y="176" width="299" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="Z9k-7B-p8I" eventType="valueChanged" id="dFi-mP-85a"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 (Medium)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS8-qm-prO">
+                                <rect key="frame" x="143" y="214" width="88.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.75294117647058822" green="0.87450980392156863" blue="0.85098039215686272" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.34999999999999998" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5X2-zv-Awa" firstAttribute="centerX" secondItem="NVc-CI-7a1" secondAttribute="centerX" id="2SR-ri-NQu"/>
                             <constraint firstItem="hcz-y5-dEa" firstAttribute="trailing" secondItem="Ohx-1n-2fb" secondAttribute="trailing" constant="40" id="5AU-kV-SwV"/>
-                            <constraint firstItem="5X2-zv-Awa" firstAttribute="centerX" secondItem="vjO-61-f9w" secondAttribute="centerX" id="XbE-Un-109"/>
-                            <constraint firstItem="5X2-zv-Awa" firstAttribute="top" secondItem="vjO-61-f9w" secondAttribute="bottom" constant="19" id="cJ9-pz-tl9"/>
+                            <constraint firstItem="NVc-CI-7a1" firstAttribute="leading" secondItem="hcz-y5-dEa" secondAttribute="leading" constant="40" id="JTR-YZ-ukY"/>
+                            <constraint firstItem="5X2-zv-Awa" firstAttribute="top" secondItem="hS8-qm-prO" secondAttribute="bottom" constant="37" id="PPU-WM-Aqu"/>
+                            <constraint firstItem="NVc-CI-7a1" firstAttribute="centerX" secondItem="nqY-QK-2mX" secondAttribute="centerX" id="WV9-4v-V79"/>
+                            <constraint firstItem="5X2-zv-Awa" firstAttribute="centerX" secondItem="hS8-qm-prO" secondAttribute="centerX" id="cmz-f9-d9v"/>
+                            <constraint firstItem="hS8-qm-prO" firstAttribute="centerX" secondItem="NVc-CI-7a1" secondAttribute="centerX" id="dRF-RE-0b1"/>
+                            <constraint firstItem="nqY-QK-2mX" firstAttribute="top" secondItem="Ohx-1n-2fb" secondAttribute="bottom" constant="33" id="eJ5-PK-uq9"/>
+                            <constraint firstItem="hcz-y5-dEa" firstAttribute="trailing" secondItem="NVc-CI-7a1" secondAttribute="trailing" constant="40" id="enC-wE-s9E"/>
                             <constraint firstItem="Ohx-1n-2fb" firstAttribute="leading" secondItem="hcz-y5-dEa" secondAttribute="leading" constant="40" id="ezB-hx-eIB"/>
-                            <constraint firstItem="vjO-61-f9w" firstAttribute="top" secondItem="Ohx-1n-2fb" secondAttribute="bottom" constant="18" id="mbK-dn-hSQ"/>
-                            <constraint firstItem="vjO-61-f9w" firstAttribute="centerX" secondItem="Ohx-1n-2fb" secondAttribute="centerX" id="s5I-2q-CZW"/>
+                            <constraint firstItem="NVc-CI-7a1" firstAttribute="top" secondItem="nqY-QK-2mX" secondAttribute="bottom" constant="8" id="hRR-5C-HUF"/>
+                            <constraint firstItem="hS8-qm-prO" firstAttribute="top" secondItem="NVc-CI-7a1" secondAttribute="bottom" constant="8" id="lVf-j4-eAa"/>
+                            <constraint firstItem="nqY-QK-2mX" firstAttribute="centerX" secondItem="Ohx-1n-2fb" secondAttribute="centerX" id="ocU-Ec-6sO"/>
                             <constraint firstItem="Ohx-1n-2fb" firstAttribute="top" secondItem="hcz-y5-dEa" secondAttribute="top" constant="20" id="zaD-Oa-XEr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hcz-y5-dEa"/>
                     </view>
                     <connections>
-                        <outlet property="isImp" destination="vjO-61-f9w" id="Pim-LS-Mkb"/>
+                        <outlet property="priorityLabel" destination="hS8-qm-prO" id="d9L-PN-UHI"/>
+                        <outlet property="prioritySlider" destination="NVc-CI-7a1" id="3Qp-Zf-utp"/>
                         <outlet property="textField" destination="Ohx-1n-2fb" id="G6d-XT-68H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iz4-dp-xRH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1294" y="133"/>
+            <point key="canvasLocation" x="1293.5999999999999" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mzJ-0X-51L">
