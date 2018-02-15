@@ -16,9 +16,11 @@ class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var priorityLabel: UILabel!
     
+    @IBOutlet weak var addTaskButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        addTaskButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -35,6 +37,14 @@ class AddTaskViewController: UIViewController {
         
         navigationController!.popViewController(animated: true)
         
+    }
+    
+    @IBAction func textfieldValueChanged(_ sender: Any) {
+        if (textField.hasText) {
+            addTaskButton.isEnabled = true
+        } else {
+            addTaskButton.isEnabled = false
+        }
     }
     
     @IBAction func sliderChanged(_ sender: Any) {

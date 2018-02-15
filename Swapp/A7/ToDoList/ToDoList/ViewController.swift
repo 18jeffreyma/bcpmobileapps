@@ -42,6 +42,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let task = tasks[indexPath.row]
         
         cell.textLabel?.text = task.name!
+
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0)
+        UITableViewCell.appearance().selectedBackgroundView = colorView
         
         switch task.priorityValue {
         case 1:

@@ -61,12 +61,15 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textfieldValueChanged:" destination="Z9k-7B-p8I" eventType="valueChanged" id="n7y-MA-gr5"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5X2-zv-Awa">
                                 <rect key="frame" x="139" y="272" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add Task">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.88032703982049121" blue="0.40892909484594853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="Z9k-7B-p8I" eventType="touchUpInside" id="nfk-mj-ove"/>
@@ -80,6 +83,7 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3.4900000000000002" minValue="1" maxValue="5.9900000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="NVc-CI-7a1">
                                 <rect key="frame" x="38" y="176" width="299" height="31"/>
+                                <color key="tintColor" red="1" green="0.88032703980000004" blue="0.4089290948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="sliderChanged:" destination="Z9k-7B-p8I" eventType="valueChanged" id="dFi-mP-85a"/>
                                 </connections>
@@ -111,6 +115,7 @@
                         <viewLayoutGuide key="safeArea" id="hcz-y5-dEa"/>
                     </view>
                     <connections>
+                        <outlet property="addTaskButton" destination="5X2-zv-Awa" id="bWv-BZ-dq3"/>
                         <outlet property="priorityLabel" destination="hS8-qm-prO" id="d9L-PN-UHI"/>
                         <outlet property="prioritySlider" destination="NVc-CI-7a1" id="3Qp-Zf-utp"/>
                         <outlet property="textField" destination="Ohx-1n-2fb" id="G6d-XT-68H"/>
