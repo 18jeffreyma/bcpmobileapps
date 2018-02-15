@@ -41,15 +41,15 @@ class AddTaskViewController: UIViewController {
         
         switch Int16(prioritySlider.value) {
         case 1:
-            priorityLabel.text = "1 (High)"
+            priorityLabel.text = "1 (Low)"
         case 2:
-            priorityLabel.text = "1 (Medium-High)"
+            priorityLabel.text = "2 (Medium-Low)"
         case 3:
             priorityLabel.text = "3 (Medium)"
         case 4:
-            priorityLabel.text = "4 (Medium-Low)"
+            priorityLabel.text = "4 (Medium-High)"
         case 5:
-            priorityLabel.text = "1 (Low)"
+            priorityLabel.text = "5 (High)"
         default:
             priorityLabel.text = "3 (Medium)"
         }

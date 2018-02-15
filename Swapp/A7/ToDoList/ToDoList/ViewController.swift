@@ -76,8 +76,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("Fetching failed")
         }
         
+        tasks.sort(by: {$0.name! < $1.name!})
+        tasks.sort(by: {$0.priorityValue < $1.priorityValue})
         
     }
+    
+    
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
