@@ -20,7 +20,10 @@ class AddTaskViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTaskButton.alpha = 0.5
         addTaskButton.isEnabled = false
+        
+        textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         // Do any additional setup after loading the view.
     }
 
@@ -39,13 +42,18 @@ class AddTaskViewController: UIViewController {
         
     }
     
-    @IBAction func textfieldValueChanged(_ sender: Any) {
+    @IBAction func textFieldDidChange(_ sender: UITextField) {
         if (textField.hasText) {
+            addTaskButton.alpha = 1
             addTaskButton.isEnabled = true
+            
         } else {
+            addTaskButton.alpha = 0.5
             addTaskButton.isEnabled = false
         }
     }
+    
+    
     
     @IBAction func sliderChanged(_ sender: Any) {
         

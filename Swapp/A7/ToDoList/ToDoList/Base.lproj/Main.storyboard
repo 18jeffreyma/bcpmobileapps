@@ -62,14 +62,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="textfieldValueChanged:" destination="Z9k-7B-p8I" eventType="valueChanged" id="n7y-MA-gr5"/>
+                                    <action selector="textFieldDidChange:" destination="Z9k-7B-p8I" eventType="valueChanged" id="6bq-N2-fZq"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5X2-zv-Awa">
                                 <rect key="frame" x="139" y="272" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Add Task">
-                                    <color key="titleColor" red="1" green="0.88032703982049121" blue="0.40892909484594853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="1" green="0.87843137250000003" blue="0.40784313729999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonPressed:" destination="Z9k-7B-p8I" eventType="touchUpInside" id="nfk-mj-ove"/>
