@@ -22,6 +22,7 @@
 		
 		// get mysql result
 		
+		$value = MySQLi_Result($result)
 			
 		
         $stmt->close();
