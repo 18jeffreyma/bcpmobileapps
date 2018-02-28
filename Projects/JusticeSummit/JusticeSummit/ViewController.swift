@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import SQLite3
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var firstNameTextField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
+    
+
+    @IBOutlet weak var emailTextField: UITextField!
+    
     @IBOutlet weak var studentIDTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
@@ -23,8 +26,8 @@ class ViewController: UIViewController {
         loginButton.isEnabled = false
         
         
-        firstNameTextField.addTarget(self, action: #selector(firstNameChanged(_:)), for: .editingChanged)
-        lastNameTextField.addTarget(self, action: #selector(lastNameChanged(_:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(emailChanged(_:)), for: .editingChanged)
+        
         studentIDTextField.addTarget(self, action: #selector(studentIDChanged(_:)), for: .editingChanged)
         
     }
@@ -34,17 +37,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func firstNameChanged(_ sender: UITextField) {
-        if (checkIfAllFilled()) {
-            loginButton.alpha = 1
-            loginButton.isEnabled = true
-        } else {
-            loginButton.alpha = 0.5
-            loginButton.isEnabled = false
-        }
-    }
     
-    @IBAction func lastNameChanged(_ sender: UITextField) {
+    
+   
+    @IBAction func emailChanged(_ sender: UITextField) {
         if (checkIfAllFilled()) {
             loginButton.alpha = 1
             loginButton.isEnabled = true
@@ -73,11 +69,11 @@ class ViewController: UIViewController {
     }
     
     func checkIfAllFilled() -> Bool {
-        return (firstNameTextField.hasText && lastNameTextField.hasText && studentIDTextField.text?.count == 6)
+        return (emailTextField.hasText && studentIDTextField.text?.count == 6)
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        
+        // TODO check if student in database
     }
     
 }
