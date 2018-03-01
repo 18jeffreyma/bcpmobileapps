@@ -74,6 +74,22 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // TODO check if student in database
+        let URL_CHECK_LOGIN = "http://times.bcp.org/webapps18/justiceSummit/login.php"
+        
+        let requestURL = NSURL(string: URL_CHECK_LOGIN)
+        let request = NSMutableURLRequest(url: requestURL! as URL)
+        
+        request.httpMethod = "POST"
+        
+        let email = emailTextField.text
+        let studentID = studentIDTextField.text!
+        
+        let postParameters = "email="+email!+"&studentID="+studentID
+        
+        request.httpBody = postParameters.data(using: String.Encoding.utf8)
+        
+        // https://www.simplifiedios.net/swift-php-mysql-tutorial/
+        // not done yet
     }
     
 }

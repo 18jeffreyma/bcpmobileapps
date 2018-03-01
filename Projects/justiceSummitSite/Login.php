@@ -1,37 +1,35 @@
 <?php
-	class DbOperation
-{
-    private $conn;
- 
-    //Constructor
-    function __construct()
-    {
-        require_once dirname(__FILE__) . '/Config.php';
-        require_once dirname(__FILE__) . '/DbConnect.php';
-        // opening db connection
-        $db = new DbConnect();
-        $this->conn = $db->connect();
+
+//creating response array
+$response = array();
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+
+    //getting values
+    $studentID = $_POST['studentID'];
+    $email = $_POST['email'];
+
+    //including the db operation file
+    require_once 'DbOperation.php';
+
+    $db = new DbOperation();
+
+    //inserting values 
+    if($db->checkUser($email,$studentID)){
+		$response['success'] = true;
+        $response['loggedIn']=true;
+        $response['message']='Logged in successfully';
+    }else{
+		$response['success'] = true;
+        $response['loggedIn']=false;
+        $response['message']='Incorrect email-ID combination';
     }
- 
-    //Function to check a user
-    public function checkUser($email, $studentID)
-    {
-        $sql = $this->conn->prepare("SELECT DISTINCT COUNT(*) FROM users WHERE id = ? AND email = ?");
-        $sql->bind_param("is", $studentID, $email);
-        $result = $sql->execute();
-		
-		// get mysql result
-		
-		$value = MySQLi_Result($result)
-			
-		
-        $stmt->close();
-        if ($result) {
-            return true;
-        } else {
-            return false;
-        }
-    }
- 
+
+}else{
+    $response['success']=false;
+	$response['loggedIn'] = false;
+    $response['message']='You are not authorized';
 }
+echo json_encode($response);
+
 ?>
