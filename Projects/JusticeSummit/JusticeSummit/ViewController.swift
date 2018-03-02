@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     
 
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var studentIDTextField: UITextField!
@@ -74,23 +76,73 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // TODO check if student in database
-        let URL_CHECK_LOGIN = "http://times.bcp.org/webapps18/justiceSummit/login.php"
+        if (checkLogin(email: emailTextField.text!, studentID: studentIDTextField.text!)) {
+            
+            let alert = UIAlertController(title: "Logged In", message: "nice" , preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+        } else {
+            let alert = UIAlertController(title: "Incorrect Credentials", message: "Email and Student ID do not match. Try again.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        let requestURL = NSURL(string: URL_CHECK_LOGIN)
-        let request = NSMutableURLRequest(url: requestURL! as URL)
-        
-        request.httpMethod = "POST"
-        
-        let email = emailTextField.text
-        let studentID = studentIDTextField.text!
-        
-        let postParameters = "email="+email!+"&studentID="+studentID
-        
-        request.httpBody = postParameters.data(using: String.Encoding.utf8)
-        
-        // https://www.simplifiedios.net/swift-php-mysql-tutorial/
-        // not done yet
     }
     
+    func checkLogin(email: String, studentID: String) -> Bool {
+        let url = URL(string: Links.LOGIN_URL)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "email=" + email + "&studentID=" + studentID
+        request.httpBody = postString.data(using: .utf8)
+        
+        var jsonDict = Dictionary<String, Any>()
+        var jsonString = String()
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+        
+                return
+                
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+                
+                
+                
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            
+            print("responseString = \(responseString)")
+            
+            jsonDict = self.convertToDictionary(text: responseString!)!
+            jsonString = responseString!
+            
+            
+        }
+        task.resume()
+        
+        return String(describing: jsonDict["loggedIn"]) == "true"
+        
+    }
+    
+    
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return nil
+    }
 }
+
 

@@ -10,18 +10,18 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $email = $_POST['email'];
 
     //including the db operation file
-    require_once 'DbOperation.php';
+    require_once 'DbOperations.php';
 
-    $db = new DbOperation();
+    $db = new DbOperations();
 
     //inserting values 
-    if($db->checkUser($email,$studentID)){
+    if($db->checkUser($email, $studentID)){
 		$response['success'] = true;
         $response['loggedIn']=true;
         $response['message']='Logged in successfully';
     }else{
 		$response['success'] = true;
-        $response['loggedIn']=false;
+        $response['loggedIn'] = false;
         $response['message']='Incorrect email-ID combination';
     }
 

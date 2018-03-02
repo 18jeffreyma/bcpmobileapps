@@ -7,6 +7,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     //getting values
     $blockNumber = $_POST['blockNumber'];
+	$studentID = $_POST['studentID'];
     
 
     //including the db operation file
@@ -15,16 +16,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $db = new DbOperations();
 
     //inserting values 
+	$jSessions = $db->getCurrentSelectedSession($blockNumber, $studentID);
 	
-	$jSessions = $db->getSessionIDs($blockNumber);
-	
-    if(! is_null($jSessions)) {
+    if(!is_null($jSessions)) {
 		$response['success'] = true;
-		$response['message'] = "returned all sessions";
 		$response['sessions'] = $jSessions;
 	} else {
 		$response['success'] = true;
-		$response['message'] = "error sessions returned is null";
 		$response['sessions'] = null;
 	}
 
@@ -32,6 +30,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $response['success']=false;
     $response['message']='You are not authorized';
 }
-
 echo json_encode($response);
 ?>

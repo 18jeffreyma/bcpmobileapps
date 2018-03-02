@@ -14,22 +14,24 @@ class DbOperations
     }
  
     //Function to check a user against database
+    //Function to check a user against database
     public function checkUser($email, $studentID)
     {
-        $sql = $this->conn->prepare("SELECT DISTINCT COUNT(*) FROM users WHERE id = ? AND email = ?");
-        $sql->bind_param("is", $studentID, $email);
-        $result = $sql->execute();
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
+		$cleanEmail = $this->conn->real_escape_string($email);
 		
+        $sql = "SELECT DISTINCT COUNT(*) FROM users WHERE id = ".$cleanStudentID." AND email = '" . $cleanEmail . "'";
 		
-		$value = mysqli_fetch_assoc($result);
 			
-		if ($value == TRUE) {
-			$sql->close();
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
 		
-			if ($value["COUNT(*)"] == 1) {
-				return TRUE;
-			} else {
-				return FALSE;
+				if ($row["COUNT(*)"] == 1) {
+					return TRUE;
+				} else {
+					return FALSE;
+				}
 			}
 		} else {
 			return NULL;
@@ -39,40 +41,41 @@ class DbOperations
 	
 	
 	// Function to return list of justice summit sessions (for table view)
-	public function getSessions($blockNumber)
+	public function getSessionIDs($blockNumber)
 	{
-		$sql = $this->conn->prepare("SELECT * FROM sessions WHERE block = ?");
-        $sql->bind_param("i", $blockNumber);
-        $result = $sql->execute();
-		
-		$sql->close();
-		
-		if ($result == TRUE) {
+		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+		$sql = "SELECT * FROM sessions WHERE block = " . $blockNumber;
+       
+		if ($result = $this->conn->query($sql)) {
 			$sessionArray = array();
 		
-			while ($value = mysqli_fetch_assoc($result)) {
-				$sessionArray[] = $value;
+			while ($row = $result->fetch_assoc()) {
+				$sessionArray[] = $row['id'];
 			}
-			
-			
+
 			return $sessionArray;
 		} else {
 			return null;
 		}
-		
 	}
 	
 	
 	// get current selected session for a given student in a given block number
 	public function getCurrentSelectedSession($blockNumber, $studentID) {
-		$sql = $this->conn->prepare("SELECT DISTINCT * FROM registrations WHERE sessionblock = ? AND studentid = ? AND valid = 1");
-        $sql->bind_param("ii", $blockNumber, $studentID);
-        $result = $sql->execute();
+		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
 		
-		$sql->close();
+		$sql = "SELECT DISTINCT * FROM registrations WHERE sessionblock = " .$cleanBlockNumber. " AND studentid = " .$cleanStudentID. " AND valid = 1";
 		
-		while($value = mysqli_fetch_assoc($result)) {
-			return $value;
+ 
+        
+		
+		
+ 		if ($result = $this->conn->query($sql)) {
+			while ($row = $result->fetch_assoc()) {
+				return $row;
+			}
+			
 		}
 		
 		return null;
@@ -83,15 +86,16 @@ class DbOperations
 		if(is_null($currentSession = $this->getCurrentSelectedSession($blockNumber,$studentID))){
 			// no previous session
 			
-			$sql = $this->conn->prepare("INSERT INTO registrations (sessionblock, sessionid, studentid) VALUES (?,?,?)");
-			$sql->bind_param("iIi", $blockNumber, $sessionID, $studentID);
+			$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+			$cleanStudentID = $this->conn->real_escape_string($studentID);
+			$cleanSessionID = $this->conn->real_escape_string($sessionID);
+			
+			$sql = "INSERT INTO registrations (sessionblock, sessionid, studentid) VALUES (".$cleanBlockNumber.", ".$cleanSessionID.", ".$cleanStudentID.")";
+			
 
-
-			if($sql->execute()) {
-				$sql->close();
+			if($result = $this->conn->query($sql)) {
 				return true;
 			} else {
-				$sql->close();
 				return false;
 			}
 			
@@ -100,19 +104,18 @@ class DbOperations
 			$this->removeFromSession($blockNumber, $studentID);
 			
 			// add to session again
-			
 			$this->addToSession($blockNumber, $studentID, $sessionID);
 		}
 	}
 	
 	public function removeFromSession($blockNumber, $studentID) {
-		$sql = $this->conn->prepare("UPDATE registrations SET valid = 0 WHERE sessionblock = ? AND studentid = ?");
-        $sql->bind_param("ii", $blockNumber, $studentID);
-        $result = $sql->execute();
 		
-		$sql->close();
+		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
 		
-		if($result == TRUE) {
+		$sql = "UPDATE registrations SET valid = 0 WHERE sessionblock = ".$cleanBlockNumber." AND studentid = ".$cleanStudentID;
+        
+		if($this->conn->query($sql)) {
 			return true;
 		} else {
 			return false;
