@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     
 
     
-    
     @IBOutlet weak var emailTextField: UITextField!
     
     @IBOutlet weak var studentIDTextField: UITextField!
@@ -74,43 +73,18 @@ class ViewController: UIViewController {
         return (emailTextField.hasText && studentIDTextField.text?.count == 6)
     }
     
-    @IBAction func loginButtonPressed(_ sender: Any) {
-        // TODO check if student in database
-        
-        var isLoggedIn: Int = 0
-        
-        loginPostRequest(email: emailTextField.text!, studentID: studentIDTextField.text!) {
-            
-            loginStatus in
-            isLoggedIn = loginStatus
-            
-            // print("\(isLoggedIn)")
-            
-            if (isLoggedIn == 1){
-                print("Logged In")
-                
-                // TODO add credentials to datamodel
-                
-                
-            } else {
-                print("Wrong Login")
-                
-                // TODO fix this error which leads to sigabart
-                
-                /*
-                let alert = UIAlertController(title: "Incorrect Credentials", message: "Email and Student ID do not match. Try again.", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                */
+    func convertToDictionary(text: String) -> [String: Any]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+            } catch {
+                print(error.localizedDescription)
             }
-            
         }
-        
-        
-        
+        return nil
     }
     
-    func loginPostRequest(email: String, studentID: String, completionHandler: @escaping (_ loginStatus: Int) -> ()) {
+    func loginPostRequest(email: String, studentID: String, completion: @escaping (Int) -> Void) {
         let url = URL(string: Links.LOGIN_URL)!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -123,7 +97,7 @@ class ViewController: UIViewController {
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
                 print("error=\(error)")
-        
+                
                 return
                 
             }
@@ -141,10 +115,10 @@ class ViewController: UIViewController {
             //print("responseString = \(responseString)")
             
             jsonDict = self.convertToDictionary(text: responseString!)!
-        
+            
             //print("loggedIn = \(jsonDict["loggedIn"]!)")
             
-            completionHandler(jsonDict["loggedIn"]! as! Int)
+            completion(jsonDict["loggedIn"]! as! Int)
             
         }
         task.resume()
@@ -152,18 +126,36 @@ class ViewController: UIViewController {
         
     }
     
-    
-    func convertToDictionary(text: String) -> [String: Any]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-            } catch {
-                print(error.localizedDescription)
+    @IBAction func loginButtonPressed(_ sender: Any) {
+        // TODO check if student in database
+        
+        var isLoggedIn = 0
+        
+        loginPostRequest(email: emailTextField.text!, studentID: studentIDTextField.text!, completion: { (loginStatus) -> Void in
+            
+            isLoggedIn = loginStatus
+            
+            
+            if (isLoggedIn == 1){
+                print("Logged In")
+                
+                // TODO add credentials to datamodel
+                
+                
+                // TODO segue to a tableview
+                
+                
+            } else {
+                print("Wrong Login")
+                
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Incorrect Credentials", message: "Email and Student ID do not match. Try again.", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            
             }
-        }
-        return nil
+
+        })
     }
-    
 }
-
-
