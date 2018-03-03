@@ -31,6 +31,10 @@ class ViewController: UIViewController {
         
         studentIDTextField.addTarget(self, action: #selector(studentIDChanged(_:)), for: .editingChanged)
         
+        // TODO check if user data is stored in prefs already
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,12 +130,62 @@ class ViewController: UIViewController {
         
     }
     
+    func getUserInfoPostRequest(email: String, studentID: String, completion: @escaping ([String]) -> Void) {
+        let url = URL(string: Links.GET_USER_INFO_URL)!
+        var request = URLRequest(url: url)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "email=" + email + "&studentID=" + studentID
+        request.httpBody = postString.data(using: .utf8)
+        
+       
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                
+                return
+                
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+                
+                
+                
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            
+            //print("responseString = \(responseString)")
+            
+            let jsonDict = self.convertToDictionary(text: responseString!)!
+            
+            //print("loggedIn = \(jsonDict["loggedIn"]!)")
+          
+            
+            let userInfo: [String] = [jsonDict["firstName"]! as! String,jsonDict["lastName"]! as! String,jsonDict["grade"]! as! String]
+
+            completion(userInfo)
+            
+        }
+        task.resume()
+        
+        
+    }
+    
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         // TODO check if student in database
         
         var isLoggedIn = 0
         
-        loginPostRequest(email: emailTextField.text!, studentID: studentIDTextField.text!, completion: { (loginStatus) -> Void in
+        let email = emailTextField.text!
+        let studentID = studentIDTextField.text!
+       
+        
+        loginPostRequest(email: email, studentID: studentID, completion: { (loginStatus) -> Void in
             
             isLoggedIn = loginStatus
             
@@ -139,7 +193,29 @@ class ViewController: UIViewController {
             if (isLoggedIn == 1){
                 print("Logged In")
                 
-                // TODO add credentials to datamodel
+                // TODO add credentials to prefs
+                
+                let prefs = UserDefaults.standard
+                prefs.set(email, forKey: "email")
+                prefs.set(studentID, forKey: "studentID")
+                
+                self.getUserInfoPostRequest(email: email, studentID: studentID, completion: { (userInfo) -> Void in
+                    
+                    
+                    prefs.set(userInfo[0], forKey: "firstName")
+                    prefs.set(userInfo[1], forKey: "lastName")
+                    prefs.set(userInfo[2], forKey: "grade")
+                    
+                    
+                })
+                
+                
+                    
+                    
+                    
+                
+                
+                
                 
                 
                 // TODO segue to a tableview

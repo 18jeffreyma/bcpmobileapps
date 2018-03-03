@@ -40,6 +40,66 @@ class DbOperations
     }
 	
 	
+	public function getFirstName($email, $studentID)
+    {
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
+		$cleanEmail = $this->conn->real_escape_string($email);
+		
+        $sql = "SELECT DISTINCT firstname FROM users WHERE id = ".$cleanStudentID." AND email = '" . $cleanEmail . "'";
+		
+			
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
+		
+				return $row["firstname"];
+			}
+		} else {
+			return NULL;
+		}
+        
+    }
+	
+	public function getLastName($email, $studentID)
+    {
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
+		$cleanEmail = $this->conn->real_escape_string($email);
+		
+        $sql = "SELECT DISTINCT lastname FROM users WHERE id = ".$cleanStudentID." AND email = '" . $cleanEmail . "'";
+		
+			
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
+		
+				return $row["lastname"];
+			}
+		} else {
+			return NULL;
+		}
+        
+    }
+	
+	public function getGrade($email, $studentID)
+    {
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
+		$cleanEmail = $this->conn->real_escape_string($email);
+		
+        $sql = "SELECT DISTINCT grade FROM users WHERE id = ".$cleanStudentID." AND email = '" . $cleanEmail . "'";
+		
+			
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
+		
+				return $row["grade"];
+			}
+		} else {
+			return NULL;
+		}
+        
+    }
+	
 	// Function to return list of justice summit sessions (for table view)
 	public function getSessionIDs($blockNumber)
 	{

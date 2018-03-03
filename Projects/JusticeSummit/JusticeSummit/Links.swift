@@ -10,6 +10,7 @@ import Foundation
 
 public class Links {
     public static var LOGIN_URL = "http://times.bcp.org/webapps18/justiceSummit/login.php"
+    public static var GET_USER_INFO_URL = "http://times.bcp.org/webapps18/justiceSummit/getUserInfo.php"
     
     
     
