@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--BCP Justice Summit Login-->
+        <!--Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JusticeSummit" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,7 +37,7 @@
                                                         <rect key="frame" x="0.0" y="37" width="225" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartQuotesType="no" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartQuotesType="no" textContentType="email"/>
                                                         <connections>
                                                             <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bLQ-Cb-gfT"/>
                                                         </connections>
@@ -88,40 +88,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="BCP Justice Summit Login" id="nbL-wI-n2p"/>
+                    <navigationItem key="navigationItem" title="Login" id="nbL-wI-n2p"/>
                     <connections>
                         <outlet property="emailTextField" destination="oM9-l8-iHb" id="ESS-it-fNV"/>
                         <outlet property="loginButton" destination="U3I-7O-F4Z" id="qrg-mp-iAV"/>
                         <outlet property="studentIDTextField" destination="99g-rg-qvt" id="E7e-63-Mpf"/>
-                        <segue destination="FWV-A6-iUh" kind="show" identifier="loginToMain" id="JmO-zk-4Zo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Justice Summit Sessions-->
+        <!--View Controller-->
         <scene sceneID="HIx-he-4in">
             <objects>
                 <viewController id="Vkl-ZA-koU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HrR-uZ-B1L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="O7p-fa-6LV">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2dZ-in-CqJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Justice Summit Sessions" id="Zap-GL-El2"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAh-6G-tSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1573.5999999999999" y="930.58470764617698"/>
+            <point key="canvasLocation" x="1275" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nna-ry-69P">
@@ -140,24 +131,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WT9-Ym-Ejn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-252" y="133"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="lKF-Cb-iB2">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FWV-A6-iUh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PM1-r1-WNg">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Vkl-ZA-koU" kind="relationship" relationship="rootViewController" id="sWK-DX-Bve"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0t3-7K-EjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="756" y="932"/>
         </scene>
     </scenes>
 </document>
