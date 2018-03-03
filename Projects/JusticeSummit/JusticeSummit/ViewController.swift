@@ -76,21 +76,41 @@ class ViewController: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         // TODO check if student in database
-        if (checkLogin(email: emailTextField.text!, studentID: studentIDTextField.text!)) {
+        
+        var isLoggedIn: Int = 0
+        
+        loginPostRequest(email: emailTextField.text!, studentID: studentIDTextField.text!) {
             
-            let alert = UIAlertController(title: "Logged In", message: "nice" , preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            loginStatus in
+            isLoggedIn = loginStatus
             
-        } else {
-            let alert = UIAlertController(title: "Incorrect Credentials", message: "Email and Student ID do not match. Try again.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            // print("\(isLoggedIn)")
+            
+            if (isLoggedIn == 1){
+                print("Logged In")
+                
+                // TODO add credentials to datamodel
+                
+                
+            } else {
+                print("Wrong Login")
+                
+                // TODO fix this error which leads to sigabart
+                
+                /*
+                let alert = UIAlertController(title: "Incorrect Credentials", message: "Email and Student ID do not match. Try again.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                */
+            }
+            
         }
+        
+        
         
     }
     
-    func checkLogin(email: String, studentID: String) -> Bool {
+    func loginPostRequest(email: String, studentID: String, completionHandler: @escaping (_ loginStatus: Int) -> ()) {
         let url = URL(string: Links.LOGIN_URL)!
         var request = URLRequest(url: url)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -99,7 +119,6 @@ class ViewController: UIViewController {
         request.httpBody = postString.data(using: .utf8)
         
         var jsonDict = Dictionary<String, Any>()
-        var jsonString = String()
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data, error == nil else {                                                 // check for fundamental networking error
@@ -119,16 +138,17 @@ class ViewController: UIViewController {
             
             let responseString = String(data: data, encoding: .utf8)
             
-            print("responseString = \(responseString)")
+            //print("responseString = \(responseString)")
             
             jsonDict = self.convertToDictionary(text: responseString!)!
-            jsonString = responseString!
+        
+            //print("loggedIn = \(jsonDict["loggedIn"]!)")
             
+            completionHandler(jsonDict["loggedIn"]! as! Int)
             
         }
         task.resume()
         
-        return String(describing: jsonDict["loggedIn"]) == "true"
         
     }
     
@@ -143,6 +163,7 @@ class ViewController: UIViewController {
         }
         return nil
     }
+    
 }
 
 

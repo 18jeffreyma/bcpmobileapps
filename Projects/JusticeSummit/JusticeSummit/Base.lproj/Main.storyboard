@@ -37,7 +37,7 @@
                                                         <rect key="frame" x="0.0" y="37" width="225" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartQuotesType="no" textContentType="email"/>
                                                         <connections>
                                                             <action selector="emailChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="bLQ-Cb-gfT"/>
                                                         </connections>
