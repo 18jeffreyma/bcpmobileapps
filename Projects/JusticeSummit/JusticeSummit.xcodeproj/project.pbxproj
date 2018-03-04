@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160F5676204B50B00050F6FD /* BlocksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F5675204B50B00050F6FD /* BlocksTableViewCell.swift */; };
+		160F5678204B52BD0050F6FD /* BlocksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F5677204B52BD0050F6FD /* BlocksTableViewController.swift */; };
+		160F567A204B5BCB0050F6FD /* General.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160F5679204B5BCB0050F6FD /* General.swift */; };
 		169026782045D9E700E0097E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169026772045D9E700E0097E /* AppDelegate.swift */; };
-		1690267A2045D9E700E0097E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169026792045D9E700E0097E /* ViewController.swift */; };
+		1690267A2045D9E700E0097E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 169026792045D9E700E0097E /* LoginViewController.swift */; };
 		1690267D2045D9E700E0097E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1690267B2045D9E700E0097E /* Main.storyboard */; };
 		169026802045D9E700E0097E /* JusticeSummit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1690267E2045D9E700E0097E /* JusticeSummit.xcdatamodeld */; };
 		169026822045D9E700E0097E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 169026812045D9E700E0097E /* Assets.xcassets */; };
 		169026852045D9E700E0097E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 169026832045D9E700E0097E /* LaunchScreen.storyboard */; };
 		169026902045D9E700E0097E /* JusticeSummitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690268F2045D9E700E0097E /* JusticeSummitTests.swift */; };
 		1690269B2045D9E700E0097E /* JusticeSummitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1690269A2045D9E700E0097E /* JusticeSummitUITests.swift */; };
-		16DEA47F2049FC0600AC094E /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DEA47E2049FC0600AC094E /* Links.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160F5675204B50B00050F6FD /* BlocksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksTableViewCell.swift; sourceTree = "<group>"; };
+		160F5677204B52BD0050F6FD /* BlocksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksTableViewController.swift; sourceTree = "<group>"; };
+		160F5679204B5BCB0050F6FD /* General.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = General.swift; sourceTree = "<group>"; };
 		169026742045D9E600E0097E /* JusticeSummit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JusticeSummit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		169026772045D9E700E0097E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		169026792045D9E700E0097E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		169026792045D9E700E0097E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1690267C2045D9E700E0097E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1690267F2045D9E700E0097E /* JusticeSummit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JusticeSummit.xcdatamodel; sourceTree = "<group>"; };
 		169026812045D9E700E0097E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +55,6 @@
 		169026962045D9E700E0097E /* JusticeSummitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JusticeSummitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1690269A2045D9E700E0097E /* JusticeSummitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JusticeSummitUITests.swift; sourceTree = "<group>"; };
 		1690269C2045D9E700E0097E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16DEA47E2049FC0600AC094E /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,13 +106,15 @@
 			isa = PBXGroup;
 			children = (
 				169026772045D9E700E0097E /* AppDelegate.swift */,
-				169026792045D9E700E0097E /* ViewController.swift */,
+				169026792045D9E700E0097E /* LoginViewController.swift */,
 				1690267B2045D9E700E0097E /* Main.storyboard */,
+				160F5677204B52BD0050F6FD /* BlocksTableViewController.swift */,
+				160F5675204B50B00050F6FD /* BlocksTableViewCell.swift */,
 				169026812045D9E700E0097E /* Assets.xcassets */,
 				169026832045D9E700E0097E /* LaunchScreen.storyboard */,
 				169026862045D9E700E0097E /* Info.plist */,
 				1690267E2045D9E700E0097E /* JusticeSummit.xcdatamodeld */,
-				16DEA47E2049FC0600AC094E /* Links.swift */,
+				160F5679204B5BCB0050F6FD /* General.swift */,
 			);
 			path = JusticeSummit;
 			sourceTree = "<group>";
@@ -265,10 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1690267A2045D9E700E0097E /* ViewController.swift in Sources */,
+				1690267A2045D9E700E0097E /* LoginViewController.swift in Sources */,
 				169026782045D9E700E0097E /* AppDelegate.swift in Sources */,
+				160F5676204B50B00050F6FD /* BlocksTableViewCell.swift in Sources */,
+				160F5678204B52BD0050F6FD /* BlocksTableViewController.swift in Sources */,
 				169026802045D9E700E0097E /* JusticeSummit.xcdatamodeld in Sources */,
-				16DEA47F2049FC0600AC094E /* Links.swift in Sources */,
+				160F567A204B5BCB0050F6FD /* General.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

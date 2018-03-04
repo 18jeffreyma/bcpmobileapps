@@ -80,6 +80,40 @@ class DbOperations
         
     }
 	
+	public function getSessionTitle($sessionID) {
+		$cleanSessionID = $this->conn->real_escape_string($sessionID);
+		
+		$sql = "SELECT DISTINCT title FROM sessions WHERE id = " . $cleanSessionID;
+		
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
+		
+				return $row["title"];
+			}
+		} else {
+			return NULL;
+		}
+		
+	}
+	
+	public function getSessionFullInfo($sessionID) {
+		$cleanSessionID = $this->conn->real_escape_string($sessionID);
+		
+		$sql = "SELECT DISTINCT * FROM sessions WHERE id = " . $cleanSessionID;
+		
+		if ($result = $this->conn->query($sql)) {
+			
+			while ($row = $result->fetch_assoc()) {
+		
+				return $row;
+			}
+		} else {
+			return NULL;
+		}
+		
+	}
+	
 	public function getGrade($email, $studentID)
     {
 		$cleanStudentID = $this->conn->real_escape_string($studentID);

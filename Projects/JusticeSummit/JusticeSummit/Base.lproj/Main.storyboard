@@ -6,14 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Login-->
+        <!--Justice Summit Login-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="JusticeSummit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="JusticeSummit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +35,7 @@
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. Robert.Bellarmine18@bcp.org" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oM9-l8-iHb">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. first.last00@bcp.org" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oM9-l8-iHb">
                                                         <rect key="frame" x="0.0" y="37" width="225" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -88,7 +90,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="nbL-wI-n2p"/>
+                    <navigationItem key="navigationItem" title="Justice Summit Login" id="nbL-wI-n2p"/>
                     <connections>
                         <outlet property="emailTextField" destination="oM9-l8-iHb" id="ESS-it-fNV"/>
                         <outlet property="loginButton" destination="U3I-7O-F4Z" id="qrg-mp-iAV"/>
@@ -100,21 +102,114 @@
             </objects>
             <point key="canvasLocation" x="476" y="132.68365817091455"/>
         </scene>
-        <!--Sessions-->
+        <!--Justice Summit Sessions-->
         <scene sceneID="HIx-he-4in">
             <objects>
-                <viewController id="Vkl-ZA-koU" sceneMemberID="viewController">
+                <viewController id="Vkl-ZA-koU" customClass="BlocksTableViewController" customModule="JusticeSummit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HrR-uZ-B1L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0l-Cd-jLd">
+                                <rect key="frame" x="167" y="84" width="41.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LqY-GE-L0d">
+                                <rect key="frame" x="0.0" y="125" width="375" height="542"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="blockCell" rowHeight="116" id="Uhu-Zj-cuC" customClass="BlocksTableViewCell" customModule="JusticeSummit" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uhu-Zj-cuC" id="qcF-7t-bJ8">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="116"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bfN-ih-U2c">
+                                                    <rect key="frame" x="15" y="20.5" width="225" height="75.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Session Block" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKU-k2-auI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="225" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="l49-25-2Fd">
+                                                            <rect key="frame" x="0.0" y="39" width="225" height="36.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Session:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJr-0H-l6V">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="225" height="19.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8d-lQ-A2N">
+                                                                    <rect key="frame" x="0.0" y="19.5" width="225" height="17"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="225" id="S3M-Fw-dcZ"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incomplete" translatesAutoresizingMaskIntoConstraints="NO" id="FTm-mX-c58">
+                                                    <rect key="frame" x="278" y="17" width="82" height="82"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="82" id="Duj-88-S4C"/>
+                                                        <constraint firstAttribute="width" secondItem="FTm-mX-c58" secondAttribute="height" multiplier="1:1" id="Jj2-yZ-bt7"/>
+                                                        <constraint firstAttribute="height" constant="82" id="Y2j-M9-S8m"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bfN-ih-U2c" firstAttribute="top" secondItem="qcF-7t-bJ8" secondAttribute="topMargin" constant="9.5" id="0p1-Zg-eHN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bfN-ih-U2c" secondAttribute="bottom" constant="9" id="Cyf-oh-s8d"/>
+                                                <constraint firstItem="bfN-ih-U2c" firstAttribute="centerY" secondItem="qcF-7t-bJ8" secondAttribute="centerY" id="Occ-A7-4fG"/>
+                                                <constraint firstItem="bfN-ih-U2c" firstAttribute="leading" secondItem="qcF-7t-bJ8" secondAttribute="leadingMargin" id="UHX-Y6-Vob"/>
+                                                <constraint firstItem="FTm-mX-c58" firstAttribute="top" secondItem="qcF-7t-bJ8" secondAttribute="topMargin" constant="6" id="ZLe-vj-m3l"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FTm-mX-c58" secondAttribute="bottom" constant="6" id="o1B-f8-TpH"/>
+                                                <constraint firstItem="FTm-mX-c58" firstAttribute="trailing" secondItem="qcF-7t-bJ8" secondAttribute="trailingMargin" id="otD-Xo-D4f"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.75294117650000003" green="0.87450980389999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="completedImageView" destination="FTm-mX-c58" id="fPv-g5-jZ1"/>
+                                            <outlet property="selectedSessionTitle" destination="i8d-lQ-A2N" id="8Gg-0k-y9O"/>
+                                            <outlet property="sessionBlockTitle" destination="JKU-k2-auI" id="q1p-ma-AIf"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Vkl-ZA-koU" id="wMk-V6-UWf"/>
+                                    <outlet property="delegate" destination="Vkl-ZA-koU" id="l7L-gE-mpB"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.3411764706" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p0l-Cd-jLd" firstAttribute="centerX" secondItem="HrR-uZ-B1L" secondAttribute="centerX" id="CWM-pT-Fwe"/>
+                            <constraint firstItem="LqY-GE-L0d" firstAttribute="leading" secondItem="2dZ-in-CqJ" secondAttribute="leading" id="P53-Fe-tnT"/>
+                            <constraint firstItem="LqY-GE-L0d" firstAttribute="centerX" secondItem="HrR-uZ-B1L" secondAttribute="centerX" id="Qr9-yS-EmV"/>
+                            <constraint firstItem="LqY-GE-L0d" firstAttribute="top" secondItem="p0l-Cd-jLd" secondAttribute="bottom" constant="20" id="XHo-6j-Xs0"/>
+                            <constraint firstItem="LqY-GE-L0d" firstAttribute="trailing" secondItem="2dZ-in-CqJ" secondAttribute="trailing" id="dHH-e0-fJB"/>
+                            <constraint firstItem="LqY-GE-L0d" firstAttribute="bottom" secondItem="2dZ-in-CqJ" secondAttribute="bottom" id="fAL-Jr-Cg2"/>
+                            <constraint firstItem="p0l-Cd-jLd" firstAttribute="top" secondItem="2dZ-in-CqJ" secondAttribute="top" constant="20" id="wlB-UX-r9F"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="2dZ-in-CqJ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sessions" id="RJm-co-J6Z"/>
+                    <navigationItem key="navigationItem" title="Justice Summit Sessions" id="RJm-co-J6Z">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="dko-w0-gtE"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAh-6G-tSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1975" y="138"/>
+            <point key="canvasLocation" x="1973.5999999999999" y="137.18140929535232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nna-ry-69P">
@@ -153,4 +248,7 @@
             <point key="canvasLocation" x="1273.5999999999999" y="138.53073463268368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="incomplete" width="256" height="256"/>
+    </resources>
 </document>

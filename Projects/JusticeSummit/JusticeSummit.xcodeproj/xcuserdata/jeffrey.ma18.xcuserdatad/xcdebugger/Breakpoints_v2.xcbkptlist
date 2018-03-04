@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "JusticeSummit/LoginViewController.swift"
+            timestampString = "541815548.768271"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "loginButtonPressed(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "JusticeSummit.LoginViewController.loginButtonPressed(Any) -&gt; ()"
+                  moduleName = "JusticeSummit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeffrey.ma18/Desktop/mobileapps/Projects/JusticeSummit/JusticeSummit/LoginViewController.swift"
+                  timestampString = "541810512.187876"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "1522">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Int) -&gt; () in JusticeSummit.LoginViewController.loginButtonPressed(Any) -&gt; ()"
+                  moduleName = "JusticeSummit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jeffrey.ma18/Desktop/mobileapps/Projects/JusticeSummit/JusticeSummit/LoginViewController.swift"
+                  timestampString = "541810512.191855"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "1924">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
