@@ -27,19 +27,16 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         let lastName = prefs.string(forKey: "lastName")!
         let grade = prefs.string(forKey: "grade")!
         
-
-        // TODO FIGURE OUT HOW TO GET CURRENT SESSIONS EASILY
+        // figure out how to load data
         
-        /*
-        General.loginPostRequest(email: email, studentID: studentID, completion: { (loginStatus) -> Void in
+    }
+    
+    func refreshChosenTitles(email: String, studentID: String) {
+        General.getSelectedSessionTitles(email: email, studentID: studentID, completion: { (titles) -> Void in
             
-            let isLoggedIn = loginStatus
-            
-            // what the structure looks like
-            
+            self.sessionTitles = titles
             
         })
-        */
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,7 +56,7 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "blockCell", for: indexPath) as! BlocksTableViewCell
         
         cell.sessionBlockTitle?.text = "Session Block " + String(sessions[indexPath.row])
-        cell.selectedSessionTitle?.text = sessionTitles[indexPath.row]
+        //cell.selectedSessionTitle?.text = sessionTitles[indexPath.row]
         
         return cell
     }

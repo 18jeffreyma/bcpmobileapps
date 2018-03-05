@@ -80,40 +80,6 @@ class DbOperations
         
     }
 	
-	public function getSessionTitle($sessionID) {
-		$cleanSessionID = $this->conn->real_escape_string($sessionID);
-		
-		$sql = "SELECT DISTINCT title FROM sessions WHERE id = " . $cleanSessionID;
-		
-		if ($result = $this->conn->query($sql)) {
-			
-			while ($row = $result->fetch_assoc()) {
-		
-				return $row["title"];
-			}
-		} else {
-			return NULL;
-		}
-		
-	}
-	
-	public function getSessionFullInfo($sessionID) {
-		$cleanSessionID = $this->conn->real_escape_string($sessionID);
-		
-		$sql = "SELECT DISTINCT * FROM sessions WHERE id = " . $cleanSessionID;
-		
-		if ($result = $this->conn->query($sql)) {
-			
-			while ($row = $result->fetch_assoc()) {
-		
-				return $row;
-			}
-		} else {
-			return NULL;
-		}
-		
-	}
-	
 	public function getGrade($email, $studentID)
     {
 		$cleanStudentID = $this->conn->real_escape_string($studentID);
@@ -133,48 +99,6 @@ class DbOperations
 		}
         
     }
-	
-	// Function to return list of justice summit sessions (for table view)
-	public function getSessionIDs($blockNumber)
-	{
-		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
-		$sql = "SELECT * FROM sessions WHERE block = " . $blockNumber;
-       
-		if ($result = $this->conn->query($sql)) {
-			$sessionArray = array();
-		
-			while ($row = $result->fetch_assoc()) {
-				$sessionArray[] = $row['id'];
-			}
-
-			return $sessionArray;
-		} else {
-			return null;
-		}
-	}
-	
-	
-	// get current selected session for a given student in a given block number
-	public function getCurrentSelectedSession($blockNumber, $studentID) {
-		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
-		$cleanStudentID = $this->conn->real_escape_string($studentID);
-		
-		$sql = "SELECT DISTINCT * FROM registrations WHERE sessionblock = " .$cleanBlockNumber. " AND studentid = " .$cleanStudentID. " AND valid = 1";
-		
- 
-        
-		
-		
- 		if ($result = $this->conn->query($sql)) {
-			while ($row = $result->fetch_assoc()) {
-				return $row;
-			}
-			
-		}
-		
-		return null;
-			
-	}
 	
 	public function addToSession($blockNumber, $studentID, $sessionID) {
 		if(is_null($currentSession = $this->getCurrentSelectedSession($blockNumber,$studentID))){
@@ -215,6 +139,72 @@ class DbOperations
 			return false;
 		}
 	}
+	
+	// Function to return list of justice summit sessions (for table view)
+	public function getSessionIDs($blockNumber)
+	{
+		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+		$sql = "SELECT * FROM sessions WHERE block = " . $cleanBlockNumber;
+       
+		if ($result = $this->conn->query($sql)) {
+			$sessionArray = array();
+		
+			while ($row = $result->fetch_assoc()) {
+				$sessionArray[] = $row['id'];
+			}
+
+			return $sessionArray;
+		} else {
+			return null;
+		}
+	}
+	
+	public function getSelectedSession($studentID, $blockNumber)
+	{
+		$cleanBlockNumber = $this->conn->real_escape_string($blockNumber);
+		$cleanStudentID = $this->conn->real_escape_string($studentID);
+		
+		$sql = "SELECT sessionid FROM registrations WHERE sessionblock = " . $cleanBlockNumber . " AND studentid = " . $cleanStudentID . " AND valid = 1";
+       
+		if ($result = $this->conn->query($sql)) {
+		
+			if ($row = $result->fetch_assoc()) {
+				return $row['sessionid'];
+			} else {
+				return -1;
+			}
+
+		} else {
+			return null;
+		}
+	}
+	
+	public function getSessionInfo($sessionID, $blockNumber, $col) {
+		
+		if ($sessionID == -1 || is_null($sessionID) ) {
+			return "None";
+		}
+		
+		$cleanSessionID = $this->conn->real_escape_string($sessionID);
+		
+		$sql = "SELECT ".$col." FROM sessions WHERE id = " . $cleanSessionID . " AND blockNumber = ". $blockNumber;
+		
+		if ($result = $this->conn->query($sql)) {
+		
+			if ($row = $result->fetch_assoc()) {
+				return $row[$col];
+			} else {
+				return "None";
+			}
+
+		} else {
+			return null;
+		}
+		
+	}
+	
+	
+	
  
 }
 ?>
