@@ -166,7 +166,7 @@ class DbOperations
 		
 		$sql = "SELECT sessionid FROM registrations WHERE sessionblock = " . $cleanBlockNumber . " AND studentid = " . $cleanStudentID . " AND valid = 1";
        
-		if ($result = $this->conn->query($sql)) {
+		if ($result = ($this->conn->query($sql))) {
 		
 			if ($row = $result->fetch_assoc()) {
 				return $row['sessionid'];
@@ -187,7 +187,7 @@ class DbOperations
 		
 		$cleanSessionID = $this->conn->real_escape_string($sessionID);
 		
-		$sql = "SELECT ".$col." FROM sessions WHERE id = " . $cleanSessionID . " AND blockNumber = ". $blockNumber;
+		$sql = "SELECT ".$col." FROM sessions WHERE id = " . $cleanSessionID . " AND block = ". $blockNumber;
 		
 		if ($result = $this->conn->query($sql)) {
 		

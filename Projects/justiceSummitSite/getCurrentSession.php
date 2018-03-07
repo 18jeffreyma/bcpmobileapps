@@ -29,8 +29,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 	
 
     //inserting values 
-    if($db->checkUser($email, $studentID) && (!is_null($sessionID) && !is_null($sessionTitle))){
+    if($db->checkUser($email, $studentID)){
 		$response['success'] = true;
+		$response['message'] = "user logged in";
         $response['id']=$sessionID;
         $response['title']=$sessionTitle;
 		$response['description'] = $sessionDescription;
@@ -41,6 +42,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		$response['location'] = $sessionLocation;
     }else{
 		$response['success'] = true;
+		$response['message'] = "user not logged in";
         $response['id']=null;
         $response['title']=null;
 		$response['description'] = null;

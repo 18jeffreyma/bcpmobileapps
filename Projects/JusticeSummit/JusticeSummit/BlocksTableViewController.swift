@@ -20,6 +20,8 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        
         let prefs = UserDefaults.standard
         let email = prefs.string(forKey: "email")!
         let studentID = prefs.string(forKey: "studentID")!
@@ -29,15 +31,11 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         // figure out how to load data
         
+        loadSelected(email: email, studentID: studentID)
+        
     }
     
-    func refreshChosenTitles(email: String, studentID: String) {
-        General.getSelectedSessionTitles(email: email, studentID: studentID, completion: { (titles) -> Void in
-            
-            self.sessionTitles = titles
-            
-        })
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,7 +54,7 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: "blockCell", for: indexPath) as! BlocksTableViewCell
         
         cell.sessionBlockTitle?.text = "Session Block " + String(sessions[indexPath.row])
-        //cell.selectedSessionTitle?.text = sessionTitles[indexPath.row]
+        cell.selectedSessionTitle?.text = sessionTitles[indexPath.row]
         
         return cell
     }
@@ -70,5 +68,11 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func loadSelected(email: String, studentID: String) {
+        for block in sessions {
+            sessionTitles[block] = General.getCurrentSessionInfo(email: email, studentID: studentID, blockNumber: block)["title"] as! String
+        }
+    }
 
 }
