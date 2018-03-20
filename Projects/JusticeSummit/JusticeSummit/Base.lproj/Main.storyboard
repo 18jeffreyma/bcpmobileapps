@@ -116,7 +116,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LqY-GE-L0d">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LqY-GE-L0d">
                                 <rect key="frame" x="0.0" y="125" width="375" height="542"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -204,8 +204,16 @@
                         <viewLayoutGuide key="safeArea" id="2dZ-in-CqJ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Justice Summit Sessions" id="RJm-co-J6Z">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="dko-w0-gtE"/>
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="dko-w0-gtE">
+                            <connections>
+                                <action selector="logout:" destination="Vkl-ZA-koU" id="zMb-9p-GSP"/>
+                                <segue destination="8fO-nr-BaH" kind="show" identifier="logout" id="cpM-bC-Bii"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="greeting" destination="p0l-Cd-jLd" id="651-ei-3ep"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAh-6G-tSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

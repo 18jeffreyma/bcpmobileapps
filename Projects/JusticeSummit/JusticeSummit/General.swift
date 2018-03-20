@@ -16,30 +16,29 @@ public class General {
     public static var ADD_SESSION_URL = "addSession.php"
     
     
+    
     static func getCurrentSessionInfo(email: String, studentID: String, blockNumber: Int) -> [String: Any] {
         
-        var sessionInfo: [String: Any]?
+        var currentSession: [String: Any] = ["test": "test"]
         
-        let group = DispatchGroup()
-        group.enter()
+        let myGroup = DispatchGroup()
         
-        DispatchQueue.global(qos: .default).async {
+        myGroup.enter()
+        
+        getCurrentSessionPostRequest(email: email, studentID: studentID, blockNumber: blockNumber, completion: {(jsonDictionary) -> Void in
             
-            getCurrentSessionPostRequest(email: email, studentID: studentID, blockNumber: blockNumber, completion: {(jsonDictionary) -> Void in
-                
-                sessionInfo = jsonDictionary
-    
-            })
+            currentSession = jsonDictionary
             
-            group.leave()
-        }
+            myGroup.leave()
+
+        })
         
-        group.wait()
-        
-        return sessionInfo!
-        
+        return currentSession
         
     }
+
+        
+    
     
     static func getCurrentSessionPostRequest(email: String, studentID: String, blockNumber: Int, completion: @escaping ([String: Any]) -> Void) {
         let url = URL(string: General.BASE_DIRECTORY + General.GET_CURRENT_SESSION_URL)!

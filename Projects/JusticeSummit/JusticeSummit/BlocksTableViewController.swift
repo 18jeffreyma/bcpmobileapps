@@ -12,10 +12,13 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     
-
+    @IBOutlet weak var greeting: UILabel!
     
-    let sessions = [1,2,3,4]
+    
+    let sessions = [1,2,3]
     var sessionTitles: [String] = []
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +34,8 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         // figure out how to load data
         
-        loadSelected(email: email, studentID: studentID)
+        greeting.text = "Hello, " + firstName + " " + lastName + "!"
+        
         
     }
     
@@ -53,8 +57,31 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "blockCell", for: indexPath) as! BlocksTableViewCell
         
+        let prefs = UserDefaults.standard
+        
         cell.sessionBlockTitle?.text = "Session Block " + String(sessions[indexPath.row])
-        cell.selectedSessionTitle?.text = sessionTitles[indexPath.row]
+        
+        General.getCurrentSessionPostRequest(email: prefs.string(forKey: "email")!, studentID: prefs.string(forKey: "studentID")!, blockNumber: (indexPath.row+1), completion: {(jsonDictionary) -> Void in
+            
+            
+                DispatchQueue.main.async {
+                    cell.selectedSessionTitle?.text = jsonDictionary["title"] as! String
+            
+                    if (jsonDictionary["title"] == nil) {
+                        cell.completedImageView.image = UIImage(named: "incomplete")
+                    } else {
+                        cell.completedImageView.image = UIImage(named: "complete")
+                    }
+                    
+                    
+                }
+            
+            
+        })
+        
+        
+        
+        
         
         return cell
     }
@@ -71,8 +98,23 @@ class BlocksTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     func loadSelected(email: String, studentID: String) {
         for block in sessions {
-            sessionTitles[block] = General.getCurrentSessionInfo(email: email, studentID: studentID, blockNumber: block)["title"] as! String
+            
+            print(General.getCurrentSessionInfo(email: email, studentID: studentID, blockNumber: block)["title"])
+            
+            
+            // sessionTitles[block] = General.getCurrentSessionInfo(email: email, studentID: studentID, blockNumber: block)["title"] as! String
         }
     }
 
+    @IBAction func logout(_ sender: UIBarButtonItem) {
+        let defaults = UserDefaults.standard
+        
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+        
+        self.performSegue(withIdentifier: "logout", sender: nil)
+    
+    }
 }
