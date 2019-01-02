@@ -1,5 +1,4 @@
 # bcpmobileapps
-Code Repository for Mr. Lindemann's Mobile Apps Class at Bellarmine College Preparatory
 
 ## To add repository for contributors
 
