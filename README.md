@@ -1,5 +1,7 @@
 # bcpmobileapps
 
+iOS development projects, self guided exerciese as well as school Justice Summit App with REST API
+
 ## To add repository for contributors
 
 
